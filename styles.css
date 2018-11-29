@@ -13,3 +13,6 @@ br {
 ::selection {
 	background: hsl(0, 0%, 90%) !important;
 }
+input[type=number] {
+	text-align: center;
+}
