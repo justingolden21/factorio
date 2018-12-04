@@ -2,6 +2,7 @@
 //https://www.reddit.com/r/factorio/comments/3fq3cc/count_perfect_n_to_m_belt_balancers/
 //https://factorioprints.com/
 //https://factoriocheatsheet.com/
+//https://wiki.factorio.com/Balancer_mechanics
 
 
 window.onload = function() {
