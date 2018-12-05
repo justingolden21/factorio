@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="styles.css">
 <script src="scripts.js"></script>
 
+<link rel="icon" type="image/png" href="favicon.png">
+
 </head>
 
 <body>
@@ -40,26 +42,31 @@
 		<div class="col-md-4 col-sm-12">
 			<label for="colorSelect">Belts:</label>
 			<select id="colorSelect" class="form-control input-lg">
-				<option value="yellow">Yellow</option>
-				<option value="red">Red</option>
-				<option selected="true" value="blue">Blue</option>
+				<option selected="true" value="normal">Normal</option>
+				<option value="fast">Fast</option>
+				<option value="express">Express</option>
 			</select>
 		</div>
 	</div>
 	<br>
 	<p>Balancer Image:</p>
-	<img id="balancerImg" src="data/1-1.png">
-	<!-- <br> -->
-	<a href="">
-		<button id="downloadImg" title="Download the balancer image" class="btn btn-lg"><i class="fas fa-download"></i></button>
-	</a>
+	<i id="notFound" class="fas fa-exclamation-triangle"></i>
+	<img id="balancerImg" src="data/pics/normal/1-1.png"></img>
+	<!-- <br> <br> !-->
+    <button id="downloadImg" onclick="download();" title="Download the balancer image" class="btn btn-lg"><i class="fas fa-download"></i></button>
+    
+    <br> <br>
 	<p>Blueprint Code:</p>
 	<div class="input-group">
-		<input id="blueprintInput" class="form-control input-lg" type="text" spellcheck="false" value="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">
+		<input id="blueprintInput" class="form-control input-lg" type="text" spellcheck="false" readonly>
 		 <div class="input-group-append">
 			<button id="copyBlueprintButton" title="Copy the blueprint code to your clipboard" class="btn btn-lg"><i class="fas fa-copy"></i></button>
 		</div>
-	</div>
+    </div>
+</div>
+
+<div class="footer">
+    Back-end & data by oj18 / oliver1803 - UI by justingolden21 - Icon by Papirus Development Team
 </div>
 </body>
 </html>
