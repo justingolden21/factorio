@@ -10,6 +10,14 @@ balancers and stuff for factorio
 
 everything
 
+### Credit
+
+- Back-end & data by oj18 / oliver1803 
+
+- UI by justingolden21 
+
+- Icon by Papirus Development Team 
+
 ### Links
 
 Site: https://justingolden21.github.io/factorio/
