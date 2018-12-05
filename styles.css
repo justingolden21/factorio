@@ -1,6 +1,23 @@
 body, html {
+	background-color: hsl(0, 0%, 20%);
+	color: hsl(30, 60%, 50%);
+}
+
+input, button, select {
+	background-color: hsl(0, 0%, 20%) !important;
+	color: hsl(30, 60%, 50%) !important;
+	border: 2px solid hsl(30, 60%, 50%) !important;
 
 }
+
+button:focus:not(.close), input:focus, select:focus {
+	border-color: #fff !important;
+	background-color: hsl(30, 60%, 50%) !important;
+	color: hsl(0, 0%, 20%) !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
 br {
 	-webkit-user-select: none; /* Safari */        
 	-moz-user-select: none; /* Firefox */
