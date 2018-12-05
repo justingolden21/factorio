@@ -11,10 +11,15 @@ window.onload = function() {
 		$(this).select();
 	});
 
-	$('#copyBlueprintButton').on('click', function() {
+	$('#copyBlueprintButton').mouseup(function() {
 		$('#blueprintInput').focus();
     	document.getElementById('blueprintInput').setSelectionRange(0, $('#blueprintInput').val().length);
     	document.execCommand('copy');
+	});
+
+	// select on click
+	$('#blueprintInput').on('click', function() {
+    	document.getElementById('blueprintInput').setSelectionRange(0, $('#blueprintInput').val().length);
 	});
 
 	$(document).keyup(function() {
@@ -29,9 +34,9 @@ window.onload = function() {
 }
 
 function update() {
-	var input = $('#inputNum').val();
-	var output = $('#outputNum').val();
-	var type = $('#colorSelect').val();
+	let input = $('#inputNum').val();
+	let output = $('#outputNum').val();
+	let type = $('#colorSelect').val();
 
 	console.log(input + " " + output + " " + type);
 
@@ -40,8 +45,8 @@ function update() {
 	$("#balancerImg").attr("src", "");
 
 	$.getJSON("./data/json/" + input + ".json", function(data) {
-		var blueprint = data[output][type];
-		var image = "./data/pics/" + type + "/" + input + "-/" + output +  ".png";
+		let blueprint = data[output][type];
+		let image = "./data/pics/" + type + "/" + input + "-/" + output +  ".png";
 
 		$("#notFound").hide();
 
@@ -51,11 +56,11 @@ function update() {
 }
 
 function download() {
-	var input = $('#inputNum').val();
-	var output = $('#outputNum').val();
-	var type = $('#colorSelect').val();
+	let input = $('#inputNum').val();
+	let output = $('#outputNum').val();
+	let type = $('#colorSelect').val();
 
-	var link = document.createElement('a');
+	let link = document.createElement('a');
 	link.href = "./data/pics/" + type + "/" + input + "-/" + output +  ".png";
 	link.download = 'download.png';
 
