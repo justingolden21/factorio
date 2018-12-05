@@ -1,14 +1,18 @@
-# factorio
+# Factorio Balancers <img src="favicon.png" width="64px">
 
 https://justingolden21.github.io/factorio/
 
 ### About
 
-balancers and stuff for factorio
+Enter the number of input and output belts and which type of belts you'd like.
+
+You'll see an image of the print and a blueprint string to import the balancer into your factorio build.
+
+Click the download icon to download the image, or the copy icon to copy the blueprint code.
 
 ### Todo
 
-everything
+Add data for 2-8 inputs
 
 ### Credit
 
