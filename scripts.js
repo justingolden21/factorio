@@ -4,8 +4,9 @@
 //https://factoriocheatsheet.com/
 //https://wiki.factorio.com/Balancer_mechanics
 
+//1-5-express img
+
 window.onload = function() {
-	$('#inputNum').select();
 
 	$('#blueprintInput').on('click', function() {
 		$(this).select();
@@ -31,6 +32,8 @@ window.onload = function() {
 	});
 
 	update();
+
+	$('#inputNum').select();
 }
 
 function update() {
@@ -40,18 +43,18 @@ function update() {
 
 	console.log(input + ' ' + output + ' ' + type);
 
-	$("#notFound").show();
-	$("#blueprintInput").val("balancer not found");
-	$("#balancerImg").attr("src", "");
+	$('#notFound').show();
+	$('#blueprintInput').val('balancer not found');
+	$('#balancerImg').attr('src', '');
 
-	$.getJSON("./data/json/" + input + ".json", function(data) {
+	$.getJSON('./data/json/' + input + '.json', function(data) {
 		let blueprint = data[output][type];
-		let image = "./data/pics/" + type + "/" + input + "-/" + output +  ".png";
+		let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
 
-		$("#notFound").hide();
+		$('#notFound').hide();
 
-		$("#balancerImg").attr("src", image);
-		$("#blueprintInput").val(blueprint);
+		$('#balancerImg').attr('src', image);
+		$('#blueprintInput').val(blueprint);
 	});
 }
 
@@ -61,7 +64,7 @@ function download() {
 	let type = $('#colorSelect').val();
 
 	let link = document.createElement('a');
-	link.href = "./data/pics/" + type + "/" + input + "-/" + output +  ".png";
+	link.href = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
 	link.download = 'download.png';
 
 	document.body.appendChild(link);
