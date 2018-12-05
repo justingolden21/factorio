@@ -33,11 +33,11 @@
 	<div class="row">
 		<div class="col-md-4 col-sm-6">
 			<label for="inputNum">Input:</label>
-			<input autofocus id="inputNum" class="form-control input-lg" type="number" value="1">
+			<input autofocus id="inputNum" class="form-control input-lg" type="number" value="1" min="1" max="8">
 		</div>
 		<div class="col-md-4 col-sm-6">
 			<label for="outputNum">Output:</label>
-			<input id="outputNum" class="form-control input-lg" type="number" value="1">
+			<input id="outputNum" class="form-control input-lg" type="number" value="1" min="1" max="8">
 		</div>
 		<div class="col-md-4 col-sm-12">
 			<label for="colorSelect">Belts:</label>
@@ -52,7 +52,7 @@
 	<p>Balancer Image:</p>
 	<i id="notFound" class="fas fa-exclamation-triangle"></i>
 	<img id="balancerImg" src="data/pics/normal/1-1.png"></img>
-	<!-- <br> <br> !-->
+
     <button id="downloadImg" onclick="download();" title="Download the balancer image" class="btn btn-lg"><i class="fas fa-download"></i></button>
     
     <br> <br>
@@ -63,10 +63,36 @@
 			<button id="copyBlueprintButton" title="Copy the blueprint code to your clipboard" class="btn btn-lg"><i class="fas fa-copy"></i></button>
 		</div>
     </div>
+
+    <br>
+	<button type="button" class="btn btn-lg" data-toggle="modal" data-target="#infoModal" title="about">
+		<i class="fas fa-question"></i> About
+	</button>
+
 </div>
 
-<div class="footer">
-    Back-end & data by oj18 / oliver1803 - UI by justingolden21 - Icon by Papirus Development Team
+<div class="modal fade" id="infoModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fas fa-question"></i> About</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      	<b>Usage</b>
+        <p>Enter the number of input and output belts and which type of belts you'd like.</p>
+        <p>You'll see an image of the print and a blueprint string to import the balancer into your factorio build.</p>
+        <p>Click <i class="fas fa-download"></i> to download the image, or <i class="fas fa-copy"></i> to copy the blueprint code.</p>
+        <b>About</b>
+      	<p>Made by <a href="https://justingolden21.github.io" target="_blank">JustinGolden21</a> and <a href="https://github.com/Oj18" target="_blank">Oliver1803</a></p>
+      	<p> Contact Justin at <a href="mailto:justingolden@rgbstudios.org" target="_blank"><i class="fas fa-envelope"></i> justingolden@rgbstudios.org</a></p>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- <div class="footer">
+<p>Back-end & data by oj18 / oliver1803 - UI by justingolden21 - Icon by Papirus Development Team</p>
+</div> -->
 </body>
 </html>
