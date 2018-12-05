@@ -1,0 +1,6 @@
+//get url params
+let url = new URL(window.location.href);
+let q = url.searchParams.get("q");
+
+//searchParams
+history.replaceState({}, "", "?q=" + term);
