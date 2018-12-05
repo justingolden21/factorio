@@ -1,10 +1,16 @@
-//todo
+//links
 //https://www.reddit.com/r/factorio/comments/3fq3cc/count_perfect_n_to_m_belt_balancers/
 //https://factorioprints.com/
 //https://factoriocheatsheet.com/
 //https://wiki.factorio.com/Balancer_mechanics
 
+//todo
 //1-5-express img
+//rest of data
+//make toast when copied blueprint
+//about section for blueprints
+//modal for blueprint book of all balancers
+//links to wiki and others
 
 window.onload = function() {
 
@@ -18,19 +24,19 @@ window.onload = function() {
     	document.execCommand('copy');
 	});
 
-	// select on click
 	$('#blueprintInput').on('click', function() {
-    	document.getElementById('blueprintInput').setSelectionRange(0, $('#blueprintInput').val().length);
+    	$(this).setSelectionRange(0, $('#blueprintInput').val().length);
 	});
 
 	$(document).keyup(function() {
 		update();
 	});
-
-	$(document).mouseup(function() {
+	$('input[type=number]').mouseup(function() {
 		update();
 	});
-
+	$('select').mouseup(function() {
+		update();
+	});
 	update();
 
 	$('#inputNum').select();
@@ -44,15 +50,9 @@ function update() {
 	console.log(input + ' ' + output + ' ' + type);
 
 	if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') {
-		
-	
-		
-		
-	$('#notFound').show();
-	$('#blueprintInput').val('Balancer not found');
-	$('#balancerImg').attr('src', '');
-
-	
+		$('#notFound').show();
+		$('#blueprintInput').val('Balancer not found');
+		$('#balancerImg').attr('src', '');	
 	
 		$.getJSON('./data/json/' + input + '.json', function(data) {
 			let blueprint = data[output][type];
@@ -62,9 +62,8 @@ function update() {
 
 			$('#balancerImg').attr('src', image);
 			$('#blueprintInput').val(blueprint);
-		});		
+		});
 	}
-
 
 }
 
