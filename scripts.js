@@ -44,18 +44,22 @@ function update() {
 	console.log(input + ' ' + output + ' ' + type);
 
 	$('#notFound').show();
-	$('#blueprintInput').val('balancer not found');
+	$('#blueprintInput').val('Balancer not found');
 	$('#balancerImg').attr('src', '');
 
-	$.getJSON('./data/json/' + input + '.json', function(data) {
-		let blueprint = data[output][type];
-		let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
+	if($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') {
+		$.getJSON('./data/json/' + input + '.json', function(data) {
+			let blueprint = data[output][type];
+			let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
 
-		$('#notFound').hide();
+			$('#notFound').hide();
 
-		$('#balancerImg').attr('src', image);
-		$('#blueprintInput').val(blueprint);
-	});
+			$('#balancerImg').attr('src', image);
+			$('#blueprintInput').val(blueprint);
+		});		
+	}
+
+
 }
 
 function download() {
