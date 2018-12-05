@@ -38,7 +38,7 @@ function update() {
 	let output = $('#outputNum').val();
 	let type = $('#colorSelect').val();
 
-	console.log(input + " " + output + " " + type);
+	console.log(input + ' ' + output + ' ' + type);
 
 	$("#notFound").show();
 	$("#blueprintInput").val("balancer not found");
