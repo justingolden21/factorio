@@ -147,3 +147,11 @@ function downloadImg() {
 	link.click();
 	document.body.removeChild(link);
 }
+
+function copyUrl() {
+	let tmp = $('<input type="text">').appendTo(document.body);
+	tmp.val(window.location.href);
+	tmp.select();
+	document.execCommand('copy');
+	tmp.remove();
+}
