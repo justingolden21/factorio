@@ -12,8 +12,8 @@
 //rest of data
 
 //make toast when copied blueprint
-//about section for blueprints
 //modal for blueprint book of all balancers
+//big balancers?
 
 //styles:
 //change <a> css?
