@@ -7,11 +7,11 @@
 //todo
 //1-5-express img
 //rest of data
+
 //make toast when copied blueprint
 //about section for blueprints
 //modal for blueprint book of all balancers
-//links to wiki and others
-//copy link of url on right of title?
+//change <a> css?
 
 window.onload = function() {
 

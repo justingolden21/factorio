@@ -22,6 +22,16 @@ Add data for 2-8 inputs
 
 - Icon by Papirus Development Team 
 
+### More on Balancers:
+
+- https://wiki.factorio.com/Balancer_mechanics
+
+- https://factoriocheatsheet.com
+
+- https://factorioprints.com
+
+- https://www.reddit.com/r/factorio/comments/3fq3cc/count_perfect_n_to_m_belt_balancers
+
 ### Links
 
 Site: https://justingolden21.github.io/factorio/
