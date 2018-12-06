@@ -17,6 +17,7 @@
 
 //styles:
 //change <a> css?
+//style close modal button better
 //add animations for buttons?
 //animate gear wheel when loading new print?
 
