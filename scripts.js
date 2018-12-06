@@ -27,12 +27,6 @@ window.onload = function() {
 		$(this).select();
 	});
 
-	$('#copyBlueprintButton').mouseup(function() {
-		$('#blueprintInput').focus();
-    	document.getElementById('blueprintInput').setSelectionRange(0, $('#blueprintInput').val().length);
-    	document.execCommand('copy');
-	});
-
 	$('#blueprintInput').on('click', function() {
     	$(this).setSelectionRange(0, $('#blueprintInput').val().length);
 	});
@@ -162,4 +156,10 @@ function copyUrl() {
 	tmp.select();
 	document.execCommand('copy');
 	tmp.remove();
+}
+
+function copyBlueprint() {
+	$('#blueprintInput').focus();
+	document.getElementById('blueprintInput').setSelectionRange(0, $('#blueprintInput').val().length);
+	document.execCommand('copy');
 }

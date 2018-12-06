@@ -30,6 +30,7 @@
 <div class="text-center container">
 	<br>
 	<h3><img src="favicon.png" width="64px"><b> Factorio Balancers</b> <button onclick="copyUrl();" title="Click to copy shortcut to this balancer" class="btn btn-lg"><i class="fas fa-link"></i></button></h3>
+	<hr>
 	<div class="row">
 		<div class="col-md-4 col-sm-6">
 			<label for="inputNum">Input:</label>
@@ -48,19 +49,19 @@
 			</select>
 		</div>
 	</div>
-	<br>
+	<hr>
 	<p>Balancer Image:</p>
 	<p id="notFound"> <i class="fas fa-exclamation-triangle"></i> Image not found<br></p>
 	<img id="balancerImg" src="data/pics/normal/1-1.png"></img>
 
-    <button id="downloadImg" onclick="downloadImg();" title="Download the balancer image" class="btn btn-lg"><i class="fas fa-download"></i></button>
+    <button onclick="downloadImg();" title="Download the balancer image" class="btn btn-lg"><i class="fas fa-download"></i></button>
     
     <br> <br>
 	<p>Blueprint Code:</p>
 	<div class="input-group">
 		<input id="blueprintInput" class="form-control input-lg" type="text" spellcheck="false" readonly>
 		 <div class="input-group-append">
-			<button id="copyBlueprintButton" title="Copy the blueprint code to your clipboard" class="btn btn-lg"><i class="fas fa-copy"></i></button>
+			<button onclick="copyBlueprint();" title="Copy the blueprint code to your clipboard" class="btn btn-lg"><i class="fas fa-copy"></i></button>
 		</div>
     </div>
 

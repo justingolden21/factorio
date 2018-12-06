@@ -48,3 +48,6 @@ input[type=number] {
 .modal-header {
 	border-bottom: 2px solid hsl(30, 60%, 50%) !important;
 }
+hr {
+	border: 2px dashed hsl(30, 60%, 50%);
+}
