@@ -11,6 +11,7 @@
 //about section for blueprints
 //modal for blueprint book of all balancers
 //links to wiki and others
+//copy link of url on right of title?
 
 window.onload = function() {
 
@@ -28,38 +29,65 @@ window.onload = function() {
     	$(this).setSelectionRange(0, $('#blueprintInput').val().length);
 	});
 
-	
+	//load correct data when input is changed
 	$('select').on('input', function() {
-		update();
+		loadData();
 	});
-
 	$('input[type=number]').on('input', function () {
-		update();
+		loadData();
 	});
 
 	$('#inputNum').select();
 
-	load();
+	loadFromURL();
 }
 
-function load() {
-	let balancer = window.location.href.split("?balancer=")[1];
+function loadFromURL() {
+	let balancer = window.location.href.split('?balancer=')[1];
 
-	let split = balancer.split("-");
+	let input, output, type;
 
-	let input = split[0];
-	let output = split[1];
-	let type = split[2];
+	if(balancer) {
+		let split = balancer.split('-');
+
+		input = split[0];
+		output = split[1];
+		type = split[2];
+
+		//force valid url
+		if(isNaN(parseInt(input) ) || parseInt(input) < 1 || parseInt(input) > 8) {
+			input = '1';
+		}
+		if(isNaN(parseInt(output) ) || parseInt(output) < 1 || parseInt(output) > 8) {
+			output = '1';
+		}
+		if('normal fast express'.split(' ').indexOf(type) == -1) {
+			type = 'normal';
+		}
+	} else {
+		input = '1';
+		output = '1';
+		type = 'normal';
+	}
 
 	$('#inputNum').val(input);
 	$('#outputNum').val(output);
 	$('#colorSelect').val(type);
+
+	loadData();
+	updateURL();
+}
+
+function loadData() {
+	let input = $('#inputNum').val();
+	let output = $('#outputNum').val();
+	let type = $('#colorSelect').val();
 	
 	try {
-		if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') {
+		if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') { //if not already current one
 			$('#notFound').show();
 			$('#blueprintInput').val('Balancer not found');
-			$('#balancerImg').attr('src', '');	
+			$('#balancerImg').attr('src', '');
 	
 			$.getJSON('./data/json/' + input + '.json', function(data) {
 				let blueprint = data[output][type];
@@ -71,32 +99,49 @@ function load() {
 				$('#balancerImg').attr('src', image);
 				$('#blueprintInput').val(blueprint);
 			});
-		}
-	} catch {
 
+			updateURL();
+		}
+	} catch(e) {
+		console.log(e);
 	}
 }
 
-function update() {
+//update the url with current inputs
+function updateURL() {
 	let input = $('#inputNum').val();
 	let output = $('#outputNum').val();
 	let type = $('#colorSelect').val();
 
-	console.log(input + ' ' + output + ' ' + type);
+	//verify input
+	if(parseInt(input) < 1) {
+		input = '1';
+		$('#inputNum').val(input);
+	} else if(parseInt(input) > 8) {
+		input = '8';
+		$('#inputNum').val(input);
+	}
+	if(parseInt(output) < 1) {
+		output = '1';
+		$('#outputNum').val(output);
+	} else if(parseInt(output) > 8) {
+		output = '8';
+		$('#outputNum').val(output);
+	}
 
-	let balancerURL = input + '-' + output + "-" + type;
-
-	window.location.href = '?balancer=' + balancerURL;
+	let balancerURL = input + '-' + output + '-' + type;
+	console.log(balancerURL);
+	history.replaceState({}, '', '?balancer=' + balancerURL);
 }
 
-function download() {
+function downloadImg() {
 	let input = $('#inputNum').val();
 	let output = $('#outputNum').val();
 	let type = $('#colorSelect').val();
 
 	let link = document.createElement('a');
 	link.href = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
-	link.download = 'download.png';
+	link.download = input + '-' + output + '-' + type + '.png';
 
 	document.body.appendChild(link);
 	link.click();

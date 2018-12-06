@@ -33,11 +33,11 @@
 	<div class="row">
 		<div class="col-md-4 col-sm-6">
 			<label for="inputNum">Input:</label>
-			<input autofocus id="inputNum" class="form-control input-lg" type="number" value="1" min="1" max="8">
+			<input autofocus id="inputNum" class="form-control input-lg" type="number" value="1" min="1" max="8" maxlength="1">
 		</div>
 		<div class="col-md-4 col-sm-6">
 			<label for="outputNum">Output:</label>
-			<input id="outputNum" class="form-control input-lg" type="number" value="1" min="1" max="8">
+			<input id="outputNum" class="form-control input-lg" type="number" value="1" min="1" max="8" maxlength="1">
 		</div>
 		<div class="col-md-4 col-sm-12">
 			<label for="colorSelect">Belts:</label>
@@ -53,7 +53,7 @@
 	<p id="notFound"> <i class="fas fa-exclamation-triangle"></i> Image not found<br></p>
 	<img id="balancerImg" src="data/pics/normal/1-1.png"></img>
 
-    <button id="downloadImg" onclick="download();" title="Download the balancer image" class="btn btn-lg"><i class="fas fa-download"></i></button>
+    <button id="downloadImg" onclick="downloadImg();" title="Download the balancer image" class="btn btn-lg"><i class="fas fa-download"></i></button>
     
     <br> <br>
 	<p>Blueprint Code:</p>
