@@ -80,6 +80,8 @@ function loadFromURL() {
 	updateURL();
 }
 
+var foundBalancer;
+
 function loadData() {
 	let input = $('#inputNum').val();
 	let output = $('#outputNum').val();
@@ -87,9 +89,7 @@ function loadData() {
 	
 	try {
 		if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') { //if not already current one
-			$('#notFound').show();
-			$('#blueprintInput').val('Balancer not found');
-			// $('#balancerImg').attr('src', '');
+			foundBalancer = false;
 	
 			$.getJSON('./data/json/' + input + '.json', function(data) {
 				let blueprint = data[output][type];
@@ -99,7 +99,18 @@ function loadData() {
 
 				$('#balancerImg').attr('src', image);
 				$('#blueprintInput').val(blueprint);
+
+				if (imageExists()) foundBalancer = true;
 			});
+
+			setTimeout(function () {
+				if (!foundBalancer) {
+					$('#notFound').show();
+					$('#blueprintInput').val('Balancer not found');
+					$('#balancerImg').attr('src', '');
+				}
+			}, 300);
+			
 
 			updateURL();
 		}
@@ -108,27 +119,37 @@ function loadData() {
 	}
 }
 
-//update the url with current inputs
-function updateURL() {
+// check if the image exists for that balancer via a http request, returns true if it exists, false if not
+function imageExists()
+{
 	let input = $('#inputNum').val();
 	let output = $('#outputNum').val();
 	let type = $('#colorSelect').val();
+	
+	let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
 
-	//verify input
-	if(parseInt(input) < 1) {
-		input = '1';
-		$('#inputNum').val(input);
-	} else if(parseInt(input) > 8) {
-		input = '8';
-		$('#inputNum').val(input);
-	}
-	if(parseInt(output) < 1) {
-		output = '1';
-		$('#outputNum').val(output);
-	} else if(parseInt(output) > 8) {
-		output = '8';
-		$('#outputNum').val(output);
-	}
+    var http = new XMLHttpRequest();
+    http.open('HEAD', image, false);
+    http.send();
+    return http.status != 404;
+}
+
+//clamps an int
+function clamp(value, min, max) {
+	if (value < min) value = min;
+	if (value > max) value = max;
+
+	return value;
+}
+
+//update the url with current inputs
+function updateURL() {
+	let input = clamp(parseInt($('#inputNum').val()), 1, 8);
+	let output = clamp(parseInt($('#outputNum').val()), 1, 8);
+	let type = $('#colorSelect').val();
+
+	$('#inputNum').val(input);
+	$('#outputNum').val(output);
 
 	let balancerURL = input + '-' + output + '-' + type;
 	console.log(balancerURL);
