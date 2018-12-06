@@ -12,8 +12,11 @@
 //rest of data
 
 //make toast when copied blueprint
+
 //modal for blueprint book of all balancers
 //big balancers?
+//edit more modal
+//get and use icons from cheatsheet
 
 //styles:
 //change <a> css?
