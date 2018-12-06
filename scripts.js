@@ -28,18 +28,53 @@ window.onload = function() {
     	$(this).setSelectionRange(0, $('#blueprintInput').val().length);
 	});
 
-	$(document).keyup(function() {
+	
+	$('select').on('input', function() {
 		update();
 	});
-	$('input[type=number]').mouseup(function() {
+
+	$('input[type=number]').on('input', function () {
 		update();
 	});
-	$('select').mouseup(function() {
-		update();
-	});
-	update();
 
 	$('#inputNum').select();
+
+	load();
+}
+
+function load() {
+	let balancer = window.location.href.split("?balancer=")[1];
+
+	let split = balancer.split("-");
+
+	let input = split[0];
+	let output = split[1];
+	let type = split[2];
+
+	$('#inputNum').val(input);
+	$('#outputNum').val(output);
+	$('#colorSelect').val(type);
+	
+	try {
+		if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') {
+			$('#notFound').show();
+			$('#blueprintInput').val('Balancer not found');
+			$('#balancerImg').attr('src', '');	
+	
+			$.getJSON('./data/json/' + input + '.json', function(data) {
+				let blueprint = data[output][type];
+			
+				let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
+
+				$('#notFound').hide();
+
+				$('#balancerImg').attr('src', image);
+				$('#blueprintInput').val(blueprint);
+			});
+		}
+	} catch {
+
+	}
 }
 
 function update() {
@@ -49,22 +84,9 @@ function update() {
 
 	console.log(input + ' ' + output + ' ' + type);
 
-	if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') {
-		$('#notFound').show();
-		$('#blueprintInput').val('Balancer not found');
-		$('#balancerImg').attr('src', '');	
-	
-		$.getJSON('./data/json/' + input + '.json', function(data) {
-			let blueprint = data[output][type];
-			let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
+	let balancerURL = input + '-' + output + "-" + type;
 
-			$('#notFound').hide();
-
-			$('#balancerImg').attr('src', image);
-			$('#blueprintInput').val(blueprint);
-		});
-	}
-
+	window.location.href = '?balancer=' + balancerURL;
 }
 
 function download() {
