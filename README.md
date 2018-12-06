@@ -10,6 +10,8 @@ You'll see an image of the print and a blueprint string to import the balancer i
 
 Click the download icon to download the image, or the copy icon to copy the blueprint code.
 
+Click the link icon on the top to copy the permalink to your current balancer.
+
 ### Todo
 
 Add data for 2-8 inputs
