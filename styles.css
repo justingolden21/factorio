@@ -51,3 +51,7 @@ input[type=number] {
 hr {
 	border: 2px dashed hsl(30, 60%, 50%);
 }
+
+#balancerImg {
+	border: 2px solid hsl(30, 60%, 50%);
+}

@@ -17,6 +17,7 @@
 
 //styles:
 //change <a> css?
+//add hover to buttons
 //style close modal button better
 //add animations for buttons?
 //animate gear wheel when loading new print?
@@ -25,10 +26,6 @@ window.onload = function() {
 
 	$('#blueprintInput').on('click', function() {
 		$(this).select();
-	});
-
-	$('#blueprintInput').on('click', function() {
-    	$(this).setSelectionRange(0, $('#blueprintInput').val().length);
 	});
 
 	//load correct data when input is changed
@@ -89,11 +86,10 @@ function loadData() {
 		if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') { //if not already current one
 			$('#notFound').show();
 			$('#blueprintInput').val('Balancer not found');
-			$('#balancerImg').attr('src', '');
+			// $('#balancerImg').attr('src', '');
 	
 			$.getJSON('./data/json/' + input + '.json', function(data) {
 				let blueprint = data[output][type];
-			
 				let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
 
 				$('#notFound').hide();
