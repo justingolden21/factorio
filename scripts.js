@@ -3,15 +3,22 @@
 //https://factorioprints.com/
 //https://factoriocheatsheet.com/
 //https://wiki.factorio.com/Balancer_mechanics
+//https://gist.github.com/Bilka2/aeec4ff7123ff5544cb9a80cf1046a06
 
 //todo
+
+//data:
 //1-5-express img
 //rest of data
 
 //make toast when copied blueprint
 //about section for blueprints
 //modal for blueprint book of all balancers
+
+//styles:
 //change <a> css?
+//add animations for buttons?
+//animate gear wheel when loading new print?
 
 window.onload = function() {
 

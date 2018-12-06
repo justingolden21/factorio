@@ -32,6 +32,8 @@ Add data for 2-8 inputs
 
 - https://www.reddit.com/r/factorio/comments/3fq3cc/count_perfect_n_to_m_belt_balancers
 
+- https://gist.github.com/Bilka2/aeec4ff7123ff5544cb9a80cf1046a06
+
 ### Links
 
 Site: https://justingolden21.github.io/factorio/
