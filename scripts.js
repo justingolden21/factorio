@@ -18,10 +18,6 @@
 //edit more modal
 //get and use icons from cheatsheet
 
-//styles:
-//add hover to buttons
-//add animations for buttons?
-//animate gear wheel when loading new print?
 
 window.onload = function() {
 
