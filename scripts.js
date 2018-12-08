@@ -11,8 +11,6 @@
 //1-5-express img
 //rest of data
 
-//make toast when copied blueprint
-
 //modal for blueprint book of all balancers
 //big balancers?
 //edit more modal
