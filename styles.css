@@ -11,7 +11,7 @@ input, button, select {
 }
 
 button:focus:not(.close), input:focus, select:focus {
-	border-color: #fff !important;
+	/*border-color: #fff !important;*/
 	background-color: hsl(30, 60%, 50%) !important;
 	color: hsl(0, 0%, 20%) !important;
 	outline: none !important;
@@ -48,10 +48,21 @@ input[type=number] {
 .modal-header {
 	border-bottom: 2px solid hsl(30, 60%, 50%) !important;
 }
+.close {
+	color: hsl(30, 60%, 50%) !important;
+	opacity: 1 !important;
+	text-shadow: none !important;
+}
+
 hr {
 	border: 2px dashed hsl(30, 60%, 50%);
 }
 
 #balancerImg {
 	border: 2px solid hsl(30, 60%, 50%);
+}
+
+a {
+	color: hsl(30, 60%, 50%) !important;
+	font-weight: 700;
 }
