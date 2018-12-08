@@ -1,4 +1,4 @@
-body, html, .modal-content {
+body, html, .modal-content, #snackbar {
 	background-color: hsl(0, 0%, 20%);
 	color: hsl(30, 60%, 50%);
 }
@@ -20,6 +20,10 @@ button:focus:not(.close), input:focus, select:focus {
 
 button:hover i.fas {
 	transform: scale(1.2);
+}
+
+button:active i.fa-link, button:active i.fa-copy {
+	transform: scaleX(-1);
 }
 
 br {
@@ -87,7 +91,11 @@ a {
 	padding: 20px;
 	position: fixed;
 	left: 50%;
+	text-align: center;
 	bottom: 40px;
+	min-width: 250px;
+	margin-left: -125px;
+	border: 2px dashed;
 }
 #snackbar.show {
 	visibility: visible;

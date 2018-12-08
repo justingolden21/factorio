@@ -173,12 +173,14 @@ function copyUrl() {
 	tmp.select();
 	document.execCommand('copy');
 	tmp.remove();
+	showSnackbar('Url copied to clipboard');
 }
 
 function copyBlueprint() {
 	$('#blueprintInput').focus();
 	document.getElementById('blueprintInput').setSelectionRange(0, $('#blueprintInput').val().length);
 	document.execCommand('copy');
+	showSnackbar('Blueprint code copied to clipboard');
 }
 
 function showSnackbar(message) {
