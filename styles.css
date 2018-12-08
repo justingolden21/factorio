@@ -18,6 +18,10 @@ button:focus:not(.close), input:focus, select:focus {
 	box-shadow: none !important;
 }
 
+button:hover i.fas {
+	transform: scale(1.2);
+}
+
 br {
 	-webkit-user-select: none; /* Safari */        
 	-moz-user-select: none; /* Firefox */
@@ -66,3 +70,13 @@ a {
 	color: hsl(30, 60%, 50%) !important;
 	font-weight: 700;
 }
+
+
+#icon.animated {
+	-webkit-animation:spin 1s linear infinite;
+	-moz-animation:spin 1s linear infinite;
+	animation:spin 1s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

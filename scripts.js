@@ -89,6 +89,8 @@ function loadData() {
 		if($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') { //if not already current one
 			foundBalancer = false;
 	
+			$('#icon').addClass('animated');
+
 			$.getJSON('./data/json/' + input + '.json', function(data) {
 				let blueprint = data[output][type];
 				let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
@@ -99,6 +101,7 @@ function loadData() {
 				$('#blueprintInput').val(blueprint);
 
 				if(imageExists() ) foundBalancer = true;
+
 			});
 
 			setTimeout(function () {
@@ -107,6 +110,7 @@ function loadData() {
 					$('#blueprintInput').val('Balancer not found');
 					$('#balancerImg').attr('src', '');
 				}
+				$('#icon').removeClass('animated');
 			}, 300);
 			
 
