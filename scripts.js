@@ -180,3 +180,10 @@ function copyBlueprint() {
 	document.getElementById('blueprintInput').setSelectionRange(0, $('#blueprintInput').val().length);
 	document.execCommand('copy');
 }
+
+function showSnackbar(message) {
+	$('#snackbar').addClass('show');
+	$('#snackbar').html(message);
+	// $('#snackbar').css('animation', 'fadein 0.5s, fadeout 0.5s 2.5s');
+	setTimeout(function(){ $('#snackbar').removeClass('show') }, 3000);
+}

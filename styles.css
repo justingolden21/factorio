@@ -80,3 +80,33 @@ a {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/* snackbar */
+#snackbar {
+	visibility: hidden;
+	padding: 20px;
+	position: fixed;
+	left: 50%;
+	bottom: 40px;
+}
+#snackbar.show {
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 40px; opacity: 1;}
+}
+@keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 40px; opacity: 1;}
+}
+@-webkit-keyframes fadeout {
+	from {bottom: 40px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+}
+@keyframes fadeout {
+	from {bottom: 40px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+} 
