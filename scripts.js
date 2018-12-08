@@ -88,7 +88,7 @@ function loadData() {
 	let type = $('#colorSelect').val();
 	
 	try {
-		if ($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') { //if not already current one
+		if($('#balancerImg').prop('src') != './data/pics/' + type + '/' + input + '-/' + output +  '.png') { //if not already current one
 			foundBalancer = false;
 	
 			$.getJSON('./data/json/' + input + '.json', function(data) {
@@ -100,11 +100,11 @@ function loadData() {
 				$('#balancerImg').attr('src', image);
 				$('#blueprintInput').val(blueprint);
 
-				if (imageExists()) foundBalancer = true;
+				if(imageExists() ) foundBalancer = true;
 			});
 
 			setTimeout(function () {
-				if (!foundBalancer) {
+				if(!foundBalancer) {
 					$('#notFound').show();
 					$('#blueprintInput').val('Balancer not found');
 					$('#balancerImg').attr('src', '');
@@ -128,7 +128,7 @@ function imageExists()
 	
 	let image = './data/pics/' + type + '/' + input + '-/' + output +  '.png';
 
-    var http = new XMLHttpRequest();
+    let http = new XMLHttpRequest();
     http.open('HEAD', image, false);
     http.send();
     return http.status != 404;
@@ -136,9 +136,8 @@ function imageExists()
 
 //clamps an int
 function clamp(value, min, max) {
-	if (value < min) value = min;
-	if (value > max) value = max;
-
+	if(value < min) return min;
+	if(value > max) return max;
 	return value;
 }
 
